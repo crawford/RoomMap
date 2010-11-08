@@ -16,7 +16,7 @@
 	opacity: 0.5;
 }
 
-.north_room {
+.northt_room {
 	background: red;
 	position: absolute;
 	width: 46px;
@@ -25,13 +25,30 @@
 	opacity: 0.5;
 }
 
+.northb_room {
+	background: red;
+	position: absolute;
+	width: 47px;
+	height: 42px;
+	top: 104px;
+	opacity: 0.5;
+}
+
 .south_room {
 	background: yellow;
 	position: absolute;
-	width: 64px;
-	height: 34px;
-	left: 134px;
+	width: 46px;
+	height: 43px;
+	top: 789px;
 	opacity: 0.5;
+}
+
+#r3126 {
+	left: 235px;
+}
+
+#r3125 {
+	left: 185px;
 }
 
 #r3111 {
@@ -51,27 +68,27 @@
 }
 
 #r3103 {
-	top: 619px;
+	top: 618px;
 }
 
 #r3099 {
-	top: 583px;
+	top: 582px;
 }
 
 #r3095 {
-	top: 547px;
+	top: 546px;
 }
 
 #r3094 {
-	top: 547px;
+	top: 546px;
 }
 
 #r3091 {
-	top: 511px;
+	top: 510px;
 }
 
 #r3090 {
-	top: 511px;
+	top: 510px;
 }
 
 #r3088 {
@@ -125,4 +142,20 @@
 
 #r3024 {
 	left: 286;
+}
+
+#r3020 {
+	left: 335;
+}
+
+#r3016 {
+	left: 384;
+}
+
+#r3013 {
+	left: 435;
+}
+
+#r3009 {
+	left: 484;
 }
