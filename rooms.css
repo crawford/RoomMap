@@ -1,46 +1,37 @@
-.east_room {
-	background: blue;
+.room {
+	background: red;
 	position: absolute;
+	opacity: 0.5;
+}
+
+.east_room {
 	width: 62px;
 	height: 34px;
 	left: 219px;
-	opacity: 0.5;
 }
 
 .west_room {
-	background: green;
-	position: absolute;
 	width: 64px;
 	height: 34px;
 	left: 134px;
-	opacity: 0.5;
 }
 
 .northt_room {
-	background: red;
-	position: absolute;
 	width: 46px;
 	height: 42px;
 	top: 40px;
-	opacity: 0.5;
 }
 
 .northb_room {
-	background: red;
-	position: absolute;
 	width: 47px;
 	height: 42px;
 	top: 104px;
-	opacity: 0.5;
 }
 
 .south_room {
-	background: yellow;
-	position: absolute;
 	width: 46px;
 	height: 43px;
 	top: 789px;
-	opacity: 0.5;
 }
 
 #r3126 {
@@ -139,6 +130,7 @@
 #r3050 {
 	top: 149;
 }
+
 
 #r3024 {
 	left: 286;
