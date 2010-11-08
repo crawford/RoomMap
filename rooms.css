@@ -1,0 +1,128 @@
+.east_room {
+	background: blue;
+	position: absolute;
+	width: 62px;
+	height: 34px;
+	left: 219px;
+	opacity: 0.5;
+}
+
+.west_room {
+	background: green;
+	position: absolute;
+	width: 64px;
+	height: 34px;
+	left: 134px;
+	opacity: 0.5;
+}
+
+.north_room {
+	background: red;
+	position: absolute;
+	width: 46px;
+	height: 42px;
+	top: 40px;
+	opacity: 0.5;
+}
+
+.south_room {
+	background: yellow;
+	position: absolute;
+	width: 64px;
+	height: 34px;
+	left: 134px;
+	opacity: 0.5;
+}
+
+#r3111 {
+	top: 691px;
+}
+
+#r3110 {
+	top: 691px;
+}
+
+#r3108 {
+	top: 655px;
+}
+
+#r3107 {
+	top: 655px;
+}
+
+#r3103 {
+	top: 619px;
+}
+
+#r3099 {
+	top: 583px;
+}
+
+#r3095 {
+	top: 547px;
+}
+
+#r3094 {
+	top: 547px;
+}
+
+#r3091 {
+	top: 511px;
+}
+
+#r3090 {
+	top: 511px;
+}
+
+#r3088 {
+	top: 474px;
+}
+
+
+#r3074 {
+	top: 365;
+}
+
+#r3071 {
+	top: 329;
+}
+
+#r3070 {
+	top: 329;
+}
+
+#r3067 {
+	top: 293;
+}
+
+#r3066 {
+	top: 293;
+}
+
+#r3063 {
+	top: 257;
+}
+
+#r3059 {
+	top: 221;
+}
+
+#r3055 {
+	top: 185;
+}
+
+#r3054 {
+	top: 185;
+}
+
+#r3051 {
+	top: 149;
+}
+
+#r3050 {
+	top: 149;
+}
+
+#r3024 {
+	left: 286;
+}
