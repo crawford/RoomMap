@@ -1,34 +1,51 @@
-.room {
-	background: red;
+.roomfill {
+	opacity: 0.8;
+	width: 100%;
+	height: 100%;
 	position: absolute;
-	opacity: 0.5;
+	left: 0px;
+	right: 0px;
+}
+
+.roomlabel {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	text-align: center;
 }
 
 .east_room {
+	position: absolute;
 	width: 62px;
 	height: 34px;
 	left: 219px;
 }
 
 .west_room {
+	position: absolute;
 	width: 64px;
 	height: 34px;
 	left: 134px;
 }
 
 .northt_room {
+	position: absolute;
 	width: 46px;
 	height: 42px;
 	top: 40px;
 }
 
 .northb_room {
+	position: absolute;
 	width: 47px;
 	height: 42px;
 	top: 104px;
 }
 
 .south_room {
+	position: absolute;
 	width: 46px;
 	height: 43px;
 	top: 789px;
@@ -88,66 +105,66 @@
 
 
 #r3074 {
-	top: 365;
+	top: 365px;
 }
 
 #r3071 {
-	top: 329;
+	top: 329px;
 }
 
 #r3070 {
-	top: 329;
+	top: 329px;
 }
 
 #r3067 {
-	top: 293;
+	top: 293px;
 }
 
 #r3066 {
-	top: 293;
+	top: 293px;
 }
 
 #r3063 {
-	top: 257;
+	top: 257px;
 }
 
 #r3059 {
-	top: 221;
+	top: 221px;
 }
 
 #r3055 {
-	top: 185;
+	top: 185px;
 }
 
 #r3054 {
-	top: 185;
+	top: 185px;
 }
 
 #r3051 {
-	top: 149;
+	top: 149px;
 }
 
 #r3050 {
-	top: 149;
+	top: 149px;
 }
 
 
 #r3024 {
-	left: 286;
+	left: 286px;
 }
 
 #r3020 {
-	left: 335;
+	left: 335px;
 }
 
 #r3016 {
-	left: 384;
+	left: 384px;
 }
 
 #r3013 {
-	left: 435;
+	left: 435px;
 }
 
 #r3009 {
-	left: 484;
+	left: 484px;
 }
