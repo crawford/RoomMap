@@ -5,9 +5,9 @@
 	$username = 'uid=<username>,';
 	$password = '<password>';
 
-	$colorRTPEboard = '#00FFFF';
-	$colorRTP = '#00FF00';
-	$colorEboard = '#0000FF';
+	$colorDrinkAdmin = 0xAA0000;
+	$colorRTP = 0x00AA00;
+	$colorEboard = 0x0000AA;
 
 	$baseDN = 'dc=csh,dc=rit,dc=edu';
 	$usersDN = 'ou=Users,'.$baseDN;
@@ -23,7 +23,7 @@
 
 
 	# Find all On-Floor members
-	$results = ldap_search($ldap, $usersDN, '(&(onfloor=1)(objectClass=houseMember))', array('nickname', 'roomNumber', 'cn'));
+	$results = ldap_search($ldap, $usersDN, '(&(onfloor=1)(objectClass=houseMember))', array('nickname', 'roomNumber', 'cn', 'homeDirectory', 'drinkAdmin'));
 	$onfloors = ldap_get_entries($ldap, $results);
 
 	# Insert them into the members array
@@ -32,11 +32,12 @@
 		if (!isset($person['dn']))
 			continue;
 
-		$members[$person['dn']] = array('name' => $person['cn'][0], 
-		                                'room' => $person['roomNumber'][0],
+		$members[$person['dn']] = array('name' => $person['nickname'][0], 
+		                                'room' => $person['roomnumber'][0],
 										'year' => 0,
 		                                'rtp' => false,
-		                                'eboard' => false);
+		                                'eboard' => false,
+										'drinkadmin' => $person['drinkadmin'][0]);
 	}
 
 
@@ -69,20 +70,23 @@
 
 	# Fill the variables with info
 	foreach($members as $member) {
-		$name = 'n'.$member['room'];
-		if ($member['rtp'] and $member['eboard']) {
-			$$name = '<font color="'.$colorRTPEboard.'">';
-		} else if ($member['rtp']) {
-			$$name = '<font color="'.$colorRTP.'">';
-		} else if ($member['eboard']) {
-			$$name = '<font color="'.$colorEboard.'">';
-		} else {
-			$$name = '<font>';
+		$nameColor = 0;
+		if ($member['rtp']) {
+			$nameColor += $colorRTP;
 		}
-		$$name += $member['name'].'</font>';
+		if ($member['eboard']) {
+			$nameColor += $colorEboard;
+		}
+		if ($member['drinkadmin']) {
+			$nameColor += $colorDrinkAdmin;
+		}
+		$nameColor = '#'.str_pad(dechex($nameColor), 6, '0', STR_PAD_LEFT);
+
+		$name = 'n'.$member['room'];
+		$$name = '<font color="'.$nameColor.'">'.$member['name'].'</font>';
 		
-		$color = 'b'.$person['room'];
-		$$color = '#FFAAAA';
+		$color = 'b'.$member['room'];
+		$$color = '#DDDDFF';
 	}
 
 	require('map.html');
