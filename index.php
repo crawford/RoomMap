@@ -99,19 +99,23 @@
 		}
 		$nameColor = rgbhex($nameColor);
 
+		$color = 'c'.$member['room'];
+		$$color = $nameColor;
+
 		$name = 'n'.$member['room'];
-		$$name = '<font color="'.$nameColor.'">'.$member['name'].'</font>';
+		$$name = $member['name'];
 		
 		$color = 'b'.$member['room'];
 		$$color = rgbhex($colorYear[$member['year'] - 1]);
 	}
 
+	$endtime = microtime(true);
+	$total = round($endtime - $starttime, 4);
+
+	$body = '<br /><br />Request took '.$total.' seconds to complete.';
+	
 	require('map.html');
 
-	$endtime = microtime(true);
-
-	$total = round($endtime - $starttime, 4);
-	echo '<br /><br />Request took ', $total, ' seconds to complete.';
 
 	function rgbhex($rgb) {
 		return '#'.str_pad(dechex($rgb), 6, '0', STR_PAD_LEFT);
