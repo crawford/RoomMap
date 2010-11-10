@@ -9,6 +9,8 @@
 	$colorRTP = 0x00AA00;
 	$colorEboard = 0x0000AA;
 
+	$colorYear = array(0xDDDDFF, 0xDDFFFF, 0xDDFFDD, 0xFFFFDD, 0xFFDDDD);
+
 	$baseDN = 'dc=csh,dc=rit,dc=edu';
 	$usersDN = 'ou=Users,'.$baseDN;
 	$groupsDN = 'ou=Groups,'.$baseDN;
@@ -26,15 +28,30 @@
 	$results = ldap_search($ldap, $usersDN, '(&(onfloor=1)(objectClass=houseMember))', array('nickname', 'roomNumber', 'cn', 'homeDirectory', 'drinkAdmin'));
 	$onfloors = ldap_get_entries($ldap, $results);
 
+	# Calculate the current directory year
+	$curyear = date('Y');
+	if (date('W') < 26) {
+		# Adjust for school years
+		$curyear--;
+	}
+	$curyear -= 1991;
+
 	# Insert them into the members array
-	$room = 3009;
 	foreach ($onfloors as $person) {
 		if (!isset($person['dn']))
 			continue;
 
+		# Get the year level from the home directory
+		$matches = null;
+		preg_match('/^.*\/u(.*)\/.*$/', $person['homedirectory'][0], $matches);
+		
+
+		$matches = $curyear - $matches[1];
+
+
 		$members[$person['dn']] = array('name' => $person['nickname'][0], 
 		                                'room' => $person['roomnumber'][0],
-										'year' => 0,
+										'year' => $matches,
 		                                'rtp' => false,
 		                                'eboard' => false,
 										'drinkadmin' => $person['drinkadmin'][0]);
@@ -80,13 +97,13 @@
 		if ($member['drinkadmin']) {
 			$nameColor += $colorDrinkAdmin;
 		}
-		$nameColor = '#'.str_pad(dechex($nameColor), 6, '0', STR_PAD_LEFT);
+		$nameColor = rgbhex($nameColor);
 
 		$name = 'n'.$member['room'];
 		$$name = '<font color="'.$nameColor.'">'.$member['name'].'</font>';
 		
 		$color = 'b'.$member['room'];
-		$$color = '#DDDDFF';
+		$$color = rgbhex($colorYear[$member['year'] - 1]);
 	}
 
 	require('map.html');
@@ -95,6 +112,10 @@
 
 	$total = round($endtime - $starttime, 4);
 	echo '<br /><br />Request took ', $total, ' seconds to complete.';
+
+	function rgbhex($rgb) {
+		return '#'.str_pad(dechex($rgb), 6, '0', STR_PAD_LEFT);
+	}
 
 	function printnames($members) {
 		# Print them out
