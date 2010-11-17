@@ -1,3 +1,23 @@
+#legend {
+	position: absolute;
+	left: 400px;
+	top: 300px;
+	width: 150px;
+	height: 100px;
+	text-align: center;
+}
+
+.legendlabel {
+	margin: 5px;
+}
+
+.legendblock {
+	opacity: 0.8;
+	padding: 5px;
+	width: 100%;
+	height: 20%;
+}
+
 .roomfill {
 	opacity: 0.8;
 	width: 100%;
@@ -14,6 +34,8 @@
 	left: 0px;
 	right: 0px;
 	text-align: center;
+	white-space: nowrap;
+	font-size: 14px;
 }
 
 .east_room {
@@ -52,11 +74,11 @@
 }
 
 #r3126 {
-	left: 235px;
+	left: 185px;
 }
 
 #r3125 {
-	left: 185px;
+	left: 235px;
 }
 
 #r3111 {
@@ -67,11 +89,11 @@
 	top: 691px;
 }
 
-#r3108 {
+#r3107 {
 	top: 655px;
 }
 
-#r3107 {
+#r3106 {
 	top: 655px;
 }
 
@@ -99,7 +121,7 @@
 	top: 510px;
 }
 
-#r3088 {
+#r3086 {
 	top: 474px;
 }
 

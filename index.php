@@ -1,9 +1,8 @@
 <?php
 	$starttime = microtime(true);
 
-
-	$username = 'uid=<username>,';
-	$password = '<password>';
+	$username = 'cn=map,';
+	$password = 'lamp33$firefighter';
 
 	$colorDrinkAdmin = 0xAA0000;
 	$colorRTP = 0x00AA00;
@@ -13,19 +12,26 @@
 
 	$baseDN = 'dc=csh,dc=rit,dc=edu';
 	$usersDN = 'ou=Users,'.$baseDN;
+	$appsDN = 'ou=Apps,'.$baseDN;
 	$groupsDN = 'ou=Groups,'.$baseDN;
 	$eboardDN = 'cn=eboard,'.$groupsDN;
 	$rtpDN = 'cn=rtp,'.$groupsDN;
 	$members = null;
 
+	$roomNumbers = array(3009, 3012, 3013, 3016, 3020, 3024, 3038, 3050, 
+	                3051, 3054, 3055, 3059, 3063, 3066, 3067, 3070,
+	                3070, 3074, 3086, 3090, 3091, 3094, 3095, 3099,
+	                3103, 3106, 3107, 3110, 3111, 3125, 3126);
+	$overlayFile = 'overlay.html';
+
 	# Connect to LDAP
 	$ldap = ldap_connect('ldaps://ldap.csh.rit.edu', 636) or die('Could not connect to LDAP');
 	# Bind to LDAP
-	ldap_bind($ldap, $username.$usersDN, $password) or die('Could not bind to LDAP');
+	ldap_bind($ldap, $username.$appsDN, $password) or die('Could not bind to LDAP');
 
 
 	# Find all On-Floor members
-	$results = ldap_search($ldap, $usersDN, '(&(onfloor=1)(objectClass=houseMember))', array('nickname', 'roomNumber', 'cn', 'homeDirectory', 'drinkAdmin'));
+	$results = ldap_search($ldap, $usersDN, '(&(onfloor=1)(objectClass=houseMember))', array('nickname', 'roomNumber', 'cn', 'homeDirectory', 'drinkAdmin', 'givenName'));
 	$onfloors = ldap_get_entries($ldap, $results);
 
 	# Calculate the current directory year
@@ -35,6 +41,7 @@
 		$curyear--;
 	}
 	$curyear -= 1991;
+
 
 	# Insert them into the members array
 	foreach ($onfloors as $person) {
@@ -49,7 +56,7 @@
 		$matches = $curyear - $matches[1];
 
 
-		$members[$person['dn']] = array('name' => $person['nickname'][0], 
+		$members[$person['dn']] = array('name' => (!empty($person['nickname'][0]))?$person['nickname'][0]:$person['givenname'][0], 
 		                                'room' => $person['roomnumber'][0],
 										'year' => $matches,
 		                                'rtp' => false,
@@ -99,21 +106,47 @@
 		}
 		$nameColor = rgbhex($nameColor);
 
-		$color = 'c'.$member['room'];
-		$$color = $nameColor;
-
 		$name = 'n'.$member['room'];
-		$$name = $member['name'];
+		$$name .= '<font color="'.$nameColor.'">'.htmlentities($member['name']).'</font><br />';
 		
 		$color = 'b'.$member['room'];
-		$$color = rgbhex($colorYear[$member['year'] - 1]);
+		if ($member['year'] < 6) {
+			$nextColor = $colorYear[$member['year'] - 1];
+		} else {
+			$nextColor = $colorYear[4];
+		}
+		if (isset($$color)) {
+			$$color = (int)round(($$color + $nextColor)/2);
+		} else {
+			$$color = $nextColor;
+		}
+	}
+	
+	# Format the colors
+	foreach($members as $member) {
+		$color = 'b'.$member['room'];
+		if (is_int($$color)) {	
+			$$color = rgbhex($$color);
+		}
+	}
+
+	# Generate the HTML for each of the rooms
+	foreach($roomNumbers as $roomnumber) {
+
+
+		ob_start();
+		require($overlayFile);
+		$body .= ob_get_contents();
+		ob_end_clean();
 	}
 
 	$endtime = microtime(true);
 	$total = round($endtime - $starttime, 4);
 
-	$body = '<br /><br />Request took '.$total.' seconds to complete.';
+
 	
+	$body .= '<br /><br />Request took '.$total.' seconds to complete.';
+
 	require('map.html');
 
 
