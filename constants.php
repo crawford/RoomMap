@@ -2,7 +2,9 @@
 	define('COLOR_DRINK_ADMIN', 0xAA0000);
 	define('COLOR_RTP',         0x00AA00);
 	define('COLOR_EBOARD',      0x0000AA);
-	define('OVERLAY_OPACITY',   .6);
+	
+	define('OVERLAY_OPACITY', .6);
+
 
 	$COLOR_YEAR = array(0xBBBBFF, 0xBBFFFF, 0xBBFFBB, 0xFFFFBB, 0xFFBBBB);
 
@@ -18,6 +20,8 @@
 	                      3103, 3106, 3107, 3110, 3111, 3125, 3126);
 
 	define('OVERLAY_FILE', 'overlay.html');
-	define('LDAP_URL',     'ldaps://ldap.csh.rit.edu');
-	define('LDAP_PORT',    636);
+
+	define('MEMBERS_URL', 'https://members.csh.rit.edu/profiles/members/');
+	define('LDAP_URL',    'ldaps://ldap.csh.rit.edu');
+	define('LDAP_PORT',   636);
 ?>

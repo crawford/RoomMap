@@ -28,12 +28,14 @@
 		}
 
 		if (isset($rooms[$member['room']])) {
-			$rooms[$member['room']]['occupantTwoName'] = $member['name'];	
-			$rooms[$member['room']]['occupantTwoColor'] = $nameColor;	
+			$rooms[$member['room']]['occupantTwoName'] = $member['name'];
+			$rooms[$member['room']]['occupantTwoColor'] = $nameColor;
+			$rooms[$member['room']]['occupantTwoUsername'] = $member['username'];
 			$rooms[$member['room']]['fillColor'] = (int)round(($rooms[$member['room']]['fillColor'] + get_year_color($member['year'])) / 2);	
 		} else {
 			$rooms[$member['room']] = array('occupantOneName' => $member['name'],
 			                                'occupantOneColor' => $nameColor,
+											'occupantOneUsername' => $member['username'],
 			                                'fillColor' => get_year_color($member['year']));
 		}
 	}
@@ -48,6 +50,9 @@
 
 		$colorOne = rgbahex($rooms[$roomNumber]['occupantOneColor']);
 		$colorTwo = rgbahex($rooms[$roomNumber]['occupantTwoColor']);
+
+		$linkOne = MEMBERS_URL . $rooms[$roomNumber]['occupantOneUsername'];
+		$linkTwo = MEMBERS_URL . $rooms[$roomNumber]['occupantTwoUsername'];
 
 		ob_start();
 		require(OVERLAY_FILE);

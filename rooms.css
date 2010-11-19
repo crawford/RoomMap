@@ -18,6 +18,10 @@
 	height: 20%;
 }
 
+.NameLink {
+	text-decoration: none;
+}
+
 .roomfill {
 	/*opacity: 0.8;*/
 	width: 100px;

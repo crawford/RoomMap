@@ -58,16 +58,18 @@
 
 				# Get the year level from the home directory
 				$matches = null;
-				preg_match('/^.*\/u(.*)\/.*$/', $person['homedirectory'][0], $matches);
-				
+				preg_match('/^.*\/u(.*)\/.*\z/', $person['homedirectory'][0], $matches);
+				$yearLevel = $curyear - $matches[1];
 
-				$matches = $curyear - $matches[1];
-
+				# Get the user name from the DN
+				preg_match('/^uid=(.*),o.*\z/', $person['dn'], $matches);
+				$username = $matches[1];
 
 				$members[$person['dn']] = array(
 					'name' => (!empty($person['nickname'][0])) ? $person['nickname'][0] : $person['givenname'][0],
+					'username' => $username,
 					'room' => $person['roomnumber'][0],
-					'year' => $matches,
+					'year' => $yearLevel,
 					'rtp' => false,
 					'eboard' => false,
 					'drinkadmin' => $person['drinkadmin'][0]);
