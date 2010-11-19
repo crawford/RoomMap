@@ -26,36 +26,28 @@
 		if ($member['drinkadmin']) {
 			$nameColor += COLOR_DRINK_ADMIN;
 		}
-		$nameColor = rgbhex($nameColor);
 
-		$name = 'n'.$member['room'];
-		$$name .= '<font color="'.$nameColor.'">'.htmlentities($member['name']).'</font><br />';
-		
-		$color = 'b'.$member['room'];
-		if ($member['year'] < 6) {
-			$nextColor = $colorYear[$member['year'] - 1];
+		if (isset($rooms[$member['room']])) {
+			$rooms[$member['room']]['occupantTwoName'] = $member['name'];	
+			$rooms[$member['room']]['occupantTwoColor'] = $nameColor;	
+			$rooms[$member['room']]['fillColor'] = (int)round(($rooms[$member['room']]['fillColor'] + get_year_color($member['year'])) / 2);	
 		} else {
-			$nextColor = $colorYear[4];
-		}
-		if (isset($$color)) {
-			$$color = (int)round(($$color + $nextColor)/2);
-		} else {
-			$$color = $nextColor;
-		}
-	}
-	
-	# Format the colors
-	foreach($members as $member) {
-		$color = 'b'.$member['room'];
-		if (is_int($$color)) {	
-			$$color = rgbhex($$color);
+			$rooms[$member['room']] = array('occupantOneName' => $member['name'],
+			                                'occupantOneColor' => $nameColor,
+			                                'fillColor' => get_year_color($member['year']));
 		}
 	}
 
 	# Generate the HTML for each of the rooms
-	foreach($ROOM_NUMBERS as $roomnumber) {
+	foreach($ROOM_NUMBERS as $roomNumber) {
 
-		$background = 'rgba(255, 0, 0, .2)';
+		$background = rgbahex($rooms[$roomNumber]['fillColor'], OVERLAY_OPACITY);
+
+		$nameOne = $rooms[$roomNumber]['occupantOneName'];
+		$nameTwo = $rooms[$roomNumber]['occupantTwoName'];
+
+		$colorOne = rgbahex($rooms[$roomNumber]['occupantOneColor']);
+		$colorTwo = rgbahex($rooms[$roomNumber]['occupantTwoColor']);
 
 		ob_start();
 		require(OVERLAY_FILE);
@@ -73,8 +65,18 @@
 	require('map.html');
 
 
-	function rgbhex($rgb) {
-		return '#'.str_pad(dechex($rgb), 6, '0', STR_PAD_LEFT);
+
+	function rgbahex($rgb, $opacity = 1) {
+		return 'rgba(' . (string)(($rgb&0xFF0000) >> 16) . ',' . (string)(($rgb&0x00FF00) >> 8) . ',' . (string)($rgb&0x0000FF) . ',' . $opacity . ')';
+	}
+	
+	function get_year_color($year) {
+		global $COLOR_YEAR;
+
+		if ($year < 6) {
+			return $COLOR_YEAR[$year - 1];
+		}
+		return $COLOR_YEAR[4];
 	}
 
 	function printnames($members) {
