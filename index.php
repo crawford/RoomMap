@@ -9,22 +9,22 @@
 	$ldap = new LdapHelper();
 
 	$ldap->connect(LDAP_USERNAME, LDAP_PASSWORD, LDAP_URL, LDAP_PORT);
-	$ldap->fetch_on_floors($USERS_DN, $members);
-	$ldap->fetch_eboard($EBOARD_DN, $members);
-	$ldap->fetch_rtps($RTP_DN, $members);
+	$ldap->fetch_on_floors(USERS_DN, $members);
+	$ldap->fetch_eboard(EBOARD_DN, $members);
+	$ldap->fetch_rtps(RTP_DN, $members);
 	$ldap->disconnect();
 
 	# Fill the variables with info
 	foreach($members as $member) {
 		$nameColor = 0;
 		if ($member['rtp']) {
-			$nameColor += $colorRTP;
+			$nameColor += COLOR_RTP;
 		}
 		if ($member['eboard']) {
-			$nameColor += $colorEboard;
+			$nameColor += COLOR_EBOARD;
 		}
 		if ($member['drinkadmin']) {
-			$nameColor += $colorDrinkAdmin;
+			$nameColor += COLOR_DRINK_ADMIN;
 		}
 		$nameColor = rgbhex($nameColor);
 
@@ -53,12 +53,12 @@
 	}
 
 	# Generate the HTML for each of the rooms
-	foreach($roomNumbers as $roomnumber) {
+	foreach($ROOM_NUMBERS as $roomnumber) {
 
 		$background = 'rgba(255, 0, 0, .2)';
 
 		ob_start();
-		require($overlayFile);
+		require(OVERLAY_FILE);
 		$body .= ob_get_contents();
 		ob_end_clean();
 	}

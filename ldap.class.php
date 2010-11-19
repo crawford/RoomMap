@@ -3,7 +3,8 @@
 	class LdapHelper {
 		private $ldap_conn = null;
 
-		private $U1_YEAR =                 1991;
+		private $U1_YEAR = 1991;
+
 		private $FIND_ALL_MEMBERS_QUERY =  '(&(onfloor=1)(objectClass=houseMember))';
 		private $FIND_ALL_MEMBERS_FIELDS = array('nickname',
 		                                         'roomNumber',
