@@ -1,96 +1,18 @@
 <?php
 	$starttime = microtime(true);
 
-	$username = 'cn=map,';
-	$password = 'lamp33$firefighter';
-
-	$colorDrinkAdmin = 0xAA0000;
-	$colorRTP = 0x00AA00;
-	$colorEboard = 0x0000AA;
-
-	$colorYear = array(0xDDDDFF, 0xDDFFFF, 0xDDFFDD, 0xFFFFDD, 0xFFDDDD);
-
-	$baseDN = 'dc=csh,dc=rit,dc=edu';
-	$usersDN = 'ou=Users,'.$baseDN;
-	$appsDN = 'ou=Apps,'.$baseDN;
-	$groupsDN = 'ou=Groups,'.$baseDN;
-	$eboardDN = 'cn=eboard,'.$groupsDN;
-	$rtpDN = 'cn=rtp,'.$groupsDN;
-	$members = null;
-
-	$roomNumbers = array(3009, 3012, 3013, 3016, 3020, 3024, 3038, 3050, 
-	                3051, 3054, 3055, 3059, 3063, 3066, 3067, 3070,
-	                3070, 3074, 3086, 3090, 3091, 3094, 3095, 3099,
-	                3103, 3106, 3107, 3110, 3111, 3125, 3126);
-	$overlayFile = 'overlay.html';
-
-	# Connect to LDAP
-	$ldap = ldap_connect('ldaps://ldap.csh.rit.edu', 636) or die('Could not connect to LDAP');
-	# Bind to LDAP
-	ldap_bind($ldap, $username.$appsDN, $password) or die('Could not bind to LDAP');
-
-
-	# Find all On-Floor members
-	$results = ldap_search($ldap, $usersDN, '(&(onfloor=1)(objectClass=houseMember))', array('nickname', 'roomNumber', 'cn', 'homeDirectory', 'drinkAdmin', 'givenName'));
-	$onfloors = ldap_get_entries($ldap, $results);
-
-	# Calculate the current directory year
-	$curyear = date('Y');
-	if (date('W') < 26) {
-		# Adjust for school years
-		$curyear--;
-	}
-	$curyear -= 1991;
-
-
-	# Insert them into the members array
-	foreach ($onfloors as $person) {
-		if (!isset($person['dn']))
-			continue;
-
-		# Get the year level from the home directory
-		$matches = null;
-		preg_match('/^.*\/u(.*)\/.*$/', $person['homedirectory'][0], $matches);
-		
-
-		$matches = $curyear - $matches[1];
-
-
-		$members[$person['dn']] = array('name' => (!empty($person['nickname'][0]))?$person['nickname'][0]:$person['givenname'][0], 
-		                                'room' => $person['roomnumber'][0],
-										'year' => $matches,
-		                                'rtp' => false,
-		                                'eboard' => false,
-										'drinkadmin' => $person['drinkadmin'][0]);
-	}
-
-
-	# Find all eboard members
-	$results = ldap_search($ldap, $eboardDN, 'objectClass=groupOfNames', array('member'));
-	$entries = ldap_get_entries($ldap, $results);
-
-	$eboard = $entries[0]['member'];
-
-	# Set the member to be on eboard
-	foreach ($eboard as $person) {
-		$members[$person]['eboard'] = true;
-	}
-
-
-	# Find all RTPs
-	$results = ldap_search($ldap, $rtpDN, 'objectClass=groupOfNames', array('member'));
-	$entries = ldap_get_entries($ldap, $results);
-
-	$rtps = $entries[0]['member'];
+	require_once('credentials.php');
+	require_once('constants.php');
+	require_once('ldap.class.php');	
 	
-	# Set the member to be an rtp
-	foreach ($rtps as $person) {
-		$members[$person]['rtp'] = true;
-	}
+	$members = null;
+	$ldap = new LdapHelper();
 
-	# Unbind from LDAP
-	ldap_unbind($ldap);
-
+	$ldap->connect(LDAP_USERNAME, LDAP_PASSWORD, LDAP_URL, LDAP_PORT);
+	$ldap->fetch_on_floors($USERS_DN, $members);
+	$ldap->fetch_eboard($EBOARD_DN, $members);
+	$ldap->fetch_rtps($RTP_DN, $members);
+	$ldap->disconnect();
 
 	# Fill the variables with info
 	foreach($members as $member) {
@@ -133,6 +55,7 @@
 	# Generate the HTML for each of the rooms
 	foreach($roomNumbers as $roomnumber) {
 
+		$background = 'rgba(255, 0, 0, .2)';
 
 		ob_start();
 		require($overlayFile);
