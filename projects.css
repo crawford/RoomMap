@@ -1,0 +1,47 @@
+.ProjectOverlay {
+	position: absolute;
+	background: red;
+	border-radius: 5px;
+}
+
+.ProjectPopup {
+	position: absolute;
+	visibility: hidden;
+	padding: 5px;
+	text-align: center;
+	width: 80px;
+	height: 30px;
+	top: -10px;
+	left: -35px;
+	background: white;
+	border: 1px black solid;
+	border-radius: 5px;
+	line-height: 30px;
+	z-index: 1;
+}
+
+.ProjectLink {
+	text-decoration: none;
+}
+
+#bigdrink {
+	width: 20px;
+	height: 20px;
+	top: 725px;
+	left: 132px;
+}
+
+#snack {
+	width: 20px;
+	height: 20px;
+	top: 750px;
+	left: 132px;
+}
+
+#littledrink {
+	width: 20px;
+	height: 20px;
+	top: 700px;
+	left: 1424px;
+}
+

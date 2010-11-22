@@ -1,7 +1,7 @@
 #legend {
 	position: absolute;
 	left: 400px;
-	top: 300px;
+	top: 100px;
 	width: 150px;
 	height: 100px;
 	text-align: center;
@@ -12,7 +12,6 @@
 }
 
 .legendblock {
-	opacity: 0.8;
 	padding: 5px;
 	width: 100%;
 	height: 20%;
@@ -23,9 +22,8 @@
 }
 
 .roomfill {
-	/*opacity: 0.8;*/
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
 	position: absolute;
 	left: 0px;
 	right: 0px;
@@ -78,119 +76,154 @@
 }
 
 #r3126 {
-	left: 185px;
+	left: 1500px;
+	top: 600px;
 }
 
 #r3125 {
-	left: 235px;
+	left: 1500px;
+	top: 500px;
 }
 
+
 #r3111 {
-	top: 691px;
+	left: 1290px;
+	top: 500px;
 }
 
 #r3110 {
-	top: 691px;
+	left: 1290px;
+	top: 700px;
 }
 
 #r3107 {
-	top: 655px;
+	left: 1220px;
+	top: 500px;
 }
 
 #r3106 {
-	top: 655px;
+	left: 1220px;
+	top: 700px;
 }
 
 #r3103 {
-	top: 618px;
+	left: 1150px;
+	top: 500px;
 }
 
 #r3099 {
-	top: 582px;
+	left: 1080px;
+	top: 500px;
 }
 
 #r3095 {
-	top: 546px;
+	left: 1010px;
+	top: 500px;
 }
 
 #r3094 {
-	top: 546px;
+	left: 1010px;
+	top: 700px;
 }
 
 #r3091 {
-	top: 510px;
+	left: 940px;
+	top: 500px;
 }
 
 #r3090 {
-	top: 510px;
+	left: 940px;
+	top: 700px;
 }
 
 #r3086 {
-	top: 474px;
+	left: 870px;
+	top: 700px;
 }
 
 
 #r3074 {
-	top: 365px;
+	left: 660px;
+	top: 700px;
 }
 
 #r3071 {
-	top: 329px;
+	left: 590px;
+	top: 500px;
 }
 
 #r3070 {
-	top: 329px;
+	left: 590px;
+	top: 700px;
 }
 
 #r3067 {
-	top: 293px;
+	left: 520px;
+	top: 500px;
 }
 
 #r3066 {
-	top: 293px;
+	left: 520px;
+	top: 700px;
 }
 
 #r3063 {
-	top: 257px;
+	left: 450px;
+	top: 500px;
 }
 
 #r3059 {
-	top: 221px;
+	left: 380px;
+	top: 500px;
 }
 
 #r3055 {
-	top: 185px;
+	left: 310px;
+	top: 500px;
 }
 
 #r3054 {
-	top: 185px;
+	left: 310px;
+	top: 700px;
 }
 
 #r3051 {
-	top: 149px;
+	left: 240px;
+	top: 500px;
 }
 
 #r3050 {
-	top: 149px;
+	left: 240px;
+	top: 700px;
 }
 
 
+#r3038 {
+	left: 40px;
+	top: 700px;
+}
+
 #r3024 {
-	left: 286px;
+	left: 40px;
+	top: 410px;
 }
 
 #r3020 {
-	left: 335px;
+	left: 40px;
+	top: 310px;
 }
 
 #r3016 {
-	left: 384px;
+	left: 40px;
+	top: 210px;
 }
 
 #r3013 {
-	left: 435px;
+	left: 140px;
+	top: 110px;
 }
 
 #r3009 {
-	left: 484px;
+	left: 140px;
+	top: 10px;
 }

@@ -2,24 +2,26 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="rooms.css" />
+		<link rel="stylesheet" type="text/css" href="projects.css" />
+		<script type="text/javascript" src="popup.js"></script>
 		<title>CSH Room Map</title>
 	</head>
 	<body>
 		<img src="floorplan.gif" />
 		<div id="legend">
-			<div style="background: <?=rgbahex($COLOR_YEAR[0])?>" class="legendblock">
+			<div style="background: <?=rgbahex($COLOR_YEAR[0], OVERLAY_OPACITY)?>" class="legendblock">
 				First Year
 			</div>
-			<div style="background: <?=rgbahex($COLOR_YEAR[1])?>" class="legendblock">
+			<div style="background: <?=rgbahex($COLOR_YEAR[1], OVERLAY_OPACITY)?>" class="legendblock">
 				Second Year
 			</div>
-			<div style="background: <?=rgbahex($COLOR_YEAR[2])?>" class="legendblock">
+			<div style="background: <?=rgbahex($COLOR_YEAR[2], OVERLAY_OPACITY)?>" class="legendblock">
 				Third Year
 			</div>
-			<div style="background: <?=rgbahex($COLOR_YEAR[3])?>" class="legendblock">
+			<div style="background: <?=rgbahex($COLOR_YEAR[3], OVERLAY_OPACITY)?>" class="legendblock">
 				Fouth Year
 			</div>
-			<div style="background: <?=rgbahex($COLOR_YEAR[4])?>" class="legendblock">
+			<div style="background: <?=rgbahex($COLOR_YEAR[4], OVERLAY_OPACITY)?>" class="legendblock">
 				Fifth Year
 			</div>
 			<div style="color: <?=rgbahex(COLOR_RTP)?>" class="legendlabel">

@@ -55,14 +55,26 @@
 		$linkTwo = MEMBERS_URL . $rooms[$roomNumber]['occupantTwoUsername'];
 
 		ob_start();
-		require(OVERLAY_FILE);
+		require(ROOM_OVERLAY_FILE);
 		$body .= ob_get_contents();
 		ob_end_clean();
 	}
 
+	# Generate the HTML for each of the projects
+	foreach($PROJECTS as $project) {
+		$projectid = $project['id'];
+		$projectname = $project['name'];
+		$projecturl = $project['url'];
+
+		ob_start();
+		require(PROJECT_OVERLAY_FILE);
+		$body .= ob_get_contents();
+		ob_end_clean();
+	}
+
+
 	$endtime = microtime(true);
 	$total = round($endtime - $starttime, 4);
-
 
 	
 	$body .= '<br /><br />Request took '.$total.' seconds to complete.';
