@@ -14,8 +14,8 @@
 	define('EBOARD_DN', 'cn=eboard,'.GROUPS_DN);
 	define('RTP_DN',    'cn=rtp,'   .GROUPS_DN);
 
-	$ROOM_NUMBERS = array(3009, 3013, 3016, 3020, 3024, 3038, 3050, 
-	                      3051, 3054, 3055, 3059, 3063, 3066, 3067, 3070,
+	$ROOM_NUMBERS = array(3009, 3013, 3016, 3020, 3024, 3050, 3051, 
+	                      3054, 3055, 3059, 3063, 3066, 3067, 3070,
 	                      3071, 3074, 3086, 3090, 3091, 3094, 3095, 3099,
 	                      3103, 3106, 3107, 3110, 3111, 3125, 3126);
 
@@ -50,6 +50,39 @@
 	                 array('id'     => 'sudsSSwest',
 	                       'status' => 0));
 
+	$TEMP_SENSORS = array(array('number' => 0,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 1,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 2,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 3,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 4,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 5,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 6,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 7,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 8,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 9,
+	                            'top'    => 0,
+	                            'left'   => 0),
+	                      array('number' => 10,
+	                            'top'    => 0,
+	                            'left'   => 0));
 
 	define('ROOM_OVERLAY_FILE',    'roomoverlay.html');
 	define('PROJECT_OVERLAY_FILE', 'projectoverlay.html');
@@ -58,4 +91,10 @@
 	define('MEMBERS_URL', 'https://members.csh.rit.edu/profiles/members/');
 	define('LDAP_URL',    'ldaps://ldap.csh.rit.edu');
 	define('LDAP_PORT',   636);
+
+	define('SUDS_DB_URL',  'db.csh.rit.edu');
+	define('SUDS_DB_NAME', 'suds');
+	
+	define('TEMPMON_DB_URL',  'tempmon.csh.rit.edu');
+	define('TEMPMON_DB_NAME', 'tempmon');
 ?>

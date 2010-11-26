@@ -3,7 +3,7 @@ refresh();
 
 function refresh() {
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "getStatus.php", true);
+	xmlhttp.open("GET", "sudsStatus.php", true);
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			parseStatuses(xmlhttp.responseText);
