@@ -21,209 +21,195 @@
 	text-decoration: none;
 }
 
-.roomfill {
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	left: 0px;
-	right: 0px;
-}
-
-.roomlabel {
-	width: 100%;
-	height: 100%;
+.RoomFill {
+	width: 65px;
+	height: 122px;
 	position: absolute;
 	left: 0px;
 	right: 0px;
 	text-align: center;
-	white-space: nowrap;
-	font-size: 14px;
+	display: table;
+	table-layout: fixed;
 }
 
-.east_room {
-	position: absolute;
-	width: 62px;
-	height: 34px;
-	left: 219px;
+.RoomText {
+	vertical-align: middle;
+	overflow: hidden;
+	display: table-cell;
 }
 
-.west_room {
-	position: absolute;
-	width: 64px;
-	height: 34px;
-	left: 134px;
-}
-
-.northt_room {
-	position: absolute;
-	width: 46px;
-	height: 42px;
-	top: 40px;
-}
-
-.northb_room {
-	position: absolute;
-	width: 47px;
-	height: 42px;
-	top: 104px;
-}
-
-.south_room {
-	position: absolute;
-	width: 46px;
-	height: 43px;
-	top: 789px;
-}
 
 #r3126 {
-	left: 1500px;
-	top: 600px;
+	left: 1472px;
+	top: 599px;
+	width: 82px;
+	height: 93px;
 }
 
 #r3125 {
-	left: 1500px;
-	top: 500px;
+	left: 1472px;
+	top: 503px;
+	width: 82px;
+	height: 91px;
 }
 
 
 #r3111 {
-	left: 1290px;
-	top: 500px;
+	left: 1278px;
+	top: 503px;
+	width: 67px;
 }
 
 #r3110 {
-	left: 1290px;
-	top: 700px;
+	left: 1278px;
+	top: 665px;
 }
 
 #r3107 {
-	left: 1220px;
-	top: 500px;
+	left: 1208px;
+	top: 503px;
 }
 
 #r3106 {
-	left: 1220px;
-	top: 700px;
+	left: 1208px;
+	top: 665px;
 }
 
 #r3103 {
-	left: 1150px;
-	top: 500px;
+	left: 1138px;
+	top: 503px;
 }
 
 #r3099 {
-	left: 1080px;
-	top: 500px;
+	left: 1068px;
+	top: 503px;
 }
 
 #r3095 {
-	left: 1010px;
-	top: 500px;
+	left: 998px;
+	top: 503px;
 }
 
 #r3094 {
-	left: 1010px;
-	top: 700px;
+	left: 998px;
+	top: 665px;
 }
 
 #r3091 {
-	left: 940px;
-	top: 500px;
+	left: 926px;
+	top: 503px;
+	width: 67px;
 }
 
 #r3090 {
-	left: 940px;
-	top: 700px;
+	left: 928px;
+	top: 665px;
 }
 
 #r3086 {
-	left: 870px;
-	top: 700px;
+	left: 858px;
+	top: 665px;
 }
 
 
 #r3074 {
-	left: 660px;
-	top: 700px;
+	left: 648px;
+	top: 665px;
 }
 
 #r3071 {
-	left: 590px;
-	top: 500px;
+	left: 578px;
+	top: 503px;
+	width: 67px;
 }
 
 #r3070 {
-	left: 590px;
-	top: 700px;
+	left: 578px;
+	top: 665px;
 }
 
 #r3067 {
-	left: 520px;
-	top: 500px;
+	left: 508px;
+	top: 503px;
 }
 
 #r3066 {
-	left: 520px;
-	top: 700px;
+	left: 508px;
+	top: 665px;
 }
 
 #r3063 {
-	left: 450px;
-	top: 500px;
+	left: 438px;
+	top: 503px;
+	width: 66px;
 }
 
 #r3059 {
-	left: 380px;
-	top: 500px;
+	left: 368px;
+	top: 503px;
 }
 
 #r3055 {
-	left: 310px;
-	top: 500px;
+	left: 298px;
+	top: 503px;
 }
 
 #r3054 {
-	left: 310px;
-	top: 700px;
+	left: 298px;
+	top: 665px;
 }
 
 #r3051 {
-	left: 240px;
-	top: 500px;
+	left: 227px;
+	top: 503px;
+	width: 66px;
 }
 
 #r3050 {
-	left: 240px;
-	top: 700px;
+	left: 227px;
+	top: 665px;
+	width: 66px;
 }
 
 
 #r3038 {
-	left: 40px;
-	top: 700px;
+	left: 18px;
+	top: 697px;
+	width: 83px;
+	height: 90px;
 }
 
 #r3024 {
-	left: 40px;
-	top: 410px;
+	left: 18px;
+	top: 405px;
+	width: 82px;
+	height: 89px;
 }
 
 #r3020 {
-	left: 40px;
-	top: 310px;
+	left: 18px;
+	top: 308px;
+	width: 82px;
+	height: 92px;
 }
 
 #r3016 {
-	left: 40px;
-	top: 210px;
+	left: 18px;
+	top: 208px;
+	width: 82px;
+	height: 95px;
 }
 
 #r3013 {
 	left: 140px;
-	top: 110px;
+	top: 113px;
+	width: 83px;
+	height: 93px;
 }
 
 #r3009 {
 	left: 140px;
-	top: 10px;
+	top: 18px;
+	width: 83px;
+	height: 91px;
 }
