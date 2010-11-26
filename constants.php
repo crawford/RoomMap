@@ -29,9 +29,31 @@
 	                        'name' => 'Little Drink',
 	                        'url'  => 'https://wiki.csh.rit.edu/wiki/Little_Drink'));
 
+	$SHOWERS = array(array('id'     => 'sudsLeast',
+	                       'status' => 0),
+	                 array('id'     => 'sudsLwest',
+	                       'status' => 0),
+	                 array('id'     => 'sudsNNeast',
+	                       'status' => 0),
+	                 array('id'     => 'sudsNNwest',
+	                       'status' => 0),
+	                 array('id'     => 'sudsNSeast',
+	                       'status' => 0),
+	                 array('id'     => 'sudsNSwest',
+	                       'status' => 0),
+	                 array('id'     => 'sudsSNeast',
+	                       'status' => 0),
+	                 array('id'     => 'sudsSNwest',
+	                       'status' => 0),
+	                 array('id'     => 'sudsSSeast',
+	                       'status' => 0),
+	                 array('id'     => 'sudsSSwest',
+	                       'status' => 0));
+
 
 	define('ROOM_OVERLAY_FILE',    'roomoverlay.html');
 	define('PROJECT_OVERLAY_FILE', 'projectoverlay.html');
+	define('SUDS_OVERLAY_FILE', 'sudsoverlay.html');
 
 	define('MEMBERS_URL', 'https://members.csh.rit.edu/profiles/members/');
 	define('LDAP_URL',    'ldaps://ldap.csh.rit.edu');

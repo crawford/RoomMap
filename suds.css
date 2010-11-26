@@ -1,0 +1,56 @@
+.SudsOverlay {
+	position: absolute;
+	height: 18px;
+	width: 40px;
+	background: rgba(0,0,0,0);
+}
+
+#sudsLeast {
+	top: 449px;
+	left: 179px;
+}
+
+#sudsLwest {
+	top: 474px;
+	left: 179px;
+}
+
+#sudsNNeast {
+	top: 503px;
+	left: 156px;
+}
+
+#sudsNNwest {
+	top: 525px;
+	left: 156px;
+}
+
+#sudsNSeast {
+	top: 506px;
+	left: 673px;
+}
+
+#sudsNSwest {
+	top: 525px;
+	left: 673px;
+}
+
+#sudsSNeast {
+	top: 506px;
+	left: 858px;
+}
+
+#sudsSNwest {
+	top: 525px;
+	left: 858px;
+}
+
+#sudsSSeast {
+	top: 506px;
+	left: 1370px;
+}
+
+#sudsSSwest {
+	top: 525px;
+	left: 1370px;
+}

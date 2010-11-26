@@ -71,6 +71,16 @@
 		$body .= ob_get_contents();
 		ob_end_clean();
 	}
+	
+	# Generate the HTML for SUDS
+	foreach($SHOWERS as $shower) {
+		$showerid = $shower['id'];
+
+		ob_start();
+		require(SUDS_OVERLAY_FILE);
+		$body .= ob_get_contents();
+		ob_end_clean();
+	}
 
 
 	$endtime = microtime(true);
