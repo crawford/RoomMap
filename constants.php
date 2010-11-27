@@ -27,7 +27,10 @@
 	                        'url'  => 'https://wiki.csh.rit.edu/wiki/Snack'),
 	                  array('id'   => 'littledrink',
 	                        'name' => 'Little Drink',
-	                        'url'  => 'https://wiki.csh.rit.edu/wiki/Little_Drink'));
+	                        'url'  => 'https://wiki.csh.rit.edu/wiki/Little_Drink'),
+	                  array('id'   => 'infosys',
+	                        'name' => 'Little Infosys',
+	                        'url'  => 'https://wiki.csh.rit.edu/wiki/Infosys'));
 
 	$SHOWERS = array(array('id'     => 'sudsLeast',
 	                       'status' => 0),

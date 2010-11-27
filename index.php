@@ -102,8 +102,6 @@
 		}
 		$temp = (int)(511*$temp);
 
-		$sensorid = 'sensor'.$i;
-
 		if ($temp < 256) {
 			$fromColor = "rgba($temp,255,0,1)";
 			$toColor = "rgba($temp,255,0,0)";
@@ -112,6 +110,8 @@
 			$fromColor = "rgba(255,$temp,0,1)";
 			$toColor = "rgba(255,$temp,0,0)";
 		}
+
+		$sensorid = 'sensor'.$i;
 
 		ob_start();
 		require(TEMPMON_OVERLAY_FILE);

@@ -1,6 +1,6 @@
 .ProjectOverlay {
 	position: absolute;
-	background: red;
+	background: lightgray;
 	border-radius: 5px;
 }
 
@@ -45,3 +45,14 @@
 	left: 1424px;
 }
 
+#infosys {
+	width: 50px;
+	height: 20px;
+	top: 760px;
+	left: 1150px;
+}
+
+#infosyspopup {
+	width: 100px;
+	left: -30px;
+}
