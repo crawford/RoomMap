@@ -4,66 +4,67 @@
 	left: 18px;
 	width: 82px;
 	height: 90px;
+	overflow: hidden;
 }
 
 .Sensor {
 	position: absolute;
-	width: 30px;
-	height: 30px;
+	width: 50px;
+	height: 50px;
 }
 
 #sensor0 {
-	top: 0px;
-	left: 0px;
+	top: -5px;
+	left: -25px;
 }
 
 #sensor1 {
-	top: 20px;
-	left: 0px;
+	top: -10px;
+	left: 40px;
 }
 
 #sensor2 {
-	top: 40px;
-	left: 0px;
+	top: 15px;
+	left: 40px;
 }
 
 #sensor3 {
-	top: 60px;
-	left: 0px;
+	top: -10px;
+	left: 55px;
 }
 
 #sensor4 {
-	top: 60px;
-	left: 17px;
+	top: 55px;
+	left: 40px;
 }
 
 #sensor5 {
-	top: 60px;
-	left: 34px;
+	top: -10px;
+	left: 40px;
 }
 
 #sensor6 {
-	top: 60px;
-	left: 52px;
+	top: 50px;
+	left: -25px;
 }
 
 #sensor7 {
-	top: 40px;
-	left: 52px;
+	top: 30px;
+	left: 40px;
 }
 
 #sensor8 {
-	top: 20px;
-	left: 52px;
+	top: -10px;
+	left: -25px;
 }
 
 #sensor9 {
-	top: 0px;
-	left: 52px;
+	top: 55px;
+	left: -25px;
 }
 
 #sensor10 {
-	top: 0px;
-	left: 34px;
+	top: 20px;
+	left: 55px;
 }
 
