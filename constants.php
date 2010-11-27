@@ -50,43 +50,11 @@
 	                 array('id'     => 'sudsSSwest',
 	                       'status' => 0));
 
-	$TEMP_SENSORS = array(array('number' => 0,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 1,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 2,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 3,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 4,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 5,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 6,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 7,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 8,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 9,
-	                            'top'    => 0,
-	                            'left'   => 0),
-	                      array('number' => 10,
-	                            'top'    => 0,
-	                            'left'   => 0));
 
 	define('ROOM_OVERLAY_FILE',    'roomoverlay.html');
 	define('PROJECT_OVERLAY_FILE', 'projectoverlay.html');
 	define('SUDS_OVERLAY_FILE', 'sudsoverlay.html');
+	define('TEMPMON_OVERLAY_FILE', 'tempmonoverlay.html');
 
 	define('MEMBERS_URL', 'https://members.csh.rit.edu/profiles/members/');
 	define('LDAP_URL',    'ldaps://ldap.csh.rit.edu');
@@ -97,4 +65,6 @@
 	
 	define('TEMPMON_DB_URL',  'tempmon.csh.rit.edu');
 	define('TEMPMON_DB_NAME', 'tempmon');
+	define('TEMPMON_MAX_TEMP', 30);
+	define('TEMPMON_MIN_TEMP', 10);
 ?>

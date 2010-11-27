@@ -4,6 +4,7 @@
 	require_once('credentials.php');
 	require_once('constants.php');
 	require_once('ldap.class.php');	
+	require_once('tempmon.class.php');	
 	
 	$members = null;
 	$ldap = new LdapHelper();
@@ -81,6 +82,45 @@
 		$body .= ob_get_contents();
 		ob_end_clean();
 	}
+
+	# Generate the HTML for Tempmon
+	$temps = null;
+	$tempmon = new TempmonHelper();
+	$tempmon->connect(TEMPMON_USERNAME, TEMPMON_PASSWORD, TEMPMON_DB_URL, TEMPMON_DB_NAME);
+	$tempmon->fetch_temps($temps);
+	$tempmon->disconnect();
+
+	# Add the enclosing overlay div around the sensors
+	$body .= '<div id="tempOverlay">';
+
+	for ($i = 0; $i < count($temps); $i++) {
+		$temp = ($temps[$i] - TEMPMON_MIN_TEMP)/TEMPMON_MAX_TEMP;
+		if ($temp > 1) {
+			$temp = 1;
+		} else if ($temp < 0) {
+			$temp = 0;
+		}
+		$temp = (int)(511*$temp);
+
+		$sensorid = 'sensor'.$i;
+
+		if ($temp < 256) {
+			$fromColor = "rgba($temp,255,0,1)";
+			$toColor = "rgba($temp,255,0,0)";
+		} else {
+			$temp = 511 - $temp;
+			$fromColor = "rgba(255,$temp,0,1)";
+			$toColor = "rgba(255,$temp,0,0)";
+		}
+
+		ob_start();
+		require(TEMPMON_OVERLAY_FILE);
+		$body .= ob_get_contents();
+		ob_end_clean();
+	}
+
+	$body .= '</div>';
+
 
 
 	$endtime = microtime(true);
