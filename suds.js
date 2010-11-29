@@ -15,8 +15,8 @@ function refresh() {
 function parseStatuses(str) {
 	var statuses = eval(str);
 
-	occupied = "rgba(200,0,0,0.8)";
-	free = "rgba(0,200,0,0.8)";
+	occupied = "rgba(200,100,100,0.8)";
+	free = "rgba(100,200,100,0.8)";
 
 	document.getElementById("sudsSSeast").style.backgroundColor = (statuses[0] == 0) ? free : occupied;
 	document.getElementById("sudsSSwest").style.backgroundColor = (statuses[1] == 0) ? free : occupied;
