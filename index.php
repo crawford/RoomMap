@@ -127,7 +127,7 @@
 	$total = round($endtime - $starttime, 4);
 
 	
-	$body .= '<br /><br />Request took '.$total.' seconds to complete.';
+	$body .= '<br />Request took '.$total.' seconds to complete.';
 
 	require('map.html');
 
