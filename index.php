@@ -1,6 +1,8 @@
 <?php
 	$starttime = microtime(true);
 
+	header ('Content-type: text/html; charset=utf-8');
+
 	require_once('credentials.php');
 	require_once('constants.php');
 	require_once('ldap.class.php');	

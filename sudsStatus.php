@@ -6,6 +6,7 @@
 	mysql_select_db(SUDS_DB_NAME) or die("Unable to select database!");
 	$query = "SELECT * FROM status";
 	$result = mysql_query($query) or die ("Error in query: $query. ".mysql_error());
+	mysql_close($connection);
 	
 	echo "[";
 	for($i = 0; $i < mysql_num_rows($result); $i++) {
@@ -16,5 +17,4 @@
 		}
 	}
 	echo "]";
-
 ?>
