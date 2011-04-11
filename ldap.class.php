@@ -3,13 +3,11 @@
 	class LdapHelper {
 		private $ldap_conn = null;
 
-		private $U1_YEAR = 1991;
-
 		private $FIND_ALL_MEMBERS_QUERY =  '(&(onfloor=1)(objectClass=houseMember))';
 		private $FIND_ALL_MEMBERS_FIELDS = array('nickname',
 		                                         'roomNumber',
 		                                         'cn',
-		                                         'homeDirectory',
+		                                         'memberSince',
 		                                         'drinkAdmin',
 		                                         'givenName');
 		private $FIND_ALL_EBOARD_QUERY =   'objectClass=groupOfNames';
@@ -48,7 +46,6 @@
 				# Adjust for school years
 				$curyear--;
 			}
-			$curyear -= $this->U1_YEAR;
 
 
 			# Insert them into the members array
@@ -58,8 +55,8 @@
 
 				# Get the year level from the home directory
 				$matches = null;
-				preg_match('/^.*\/u(.*)\/.*\z/', $person['homedirectory'][0], $matches);
-				$yearLevel = $curyear - $matches[1];
+				preg_match('/^(\d{4})/', $person['membersince'][0], $matches);
+				$yearLevel = $curyear - $matches[1] + 1;
 
 				# Get the user name from the DN
 				preg_match('/^uid=(.*),o.*\z/', $person['dn'], $matches);
