@@ -2,7 +2,7 @@
 	position: absolute;
 	height: 18px;
 	width: 40px;
-	background: rgba(0,0,0,0);
+	background: rgba(255,175,100,0.8);
 }
 
 #sudsLeast {
@@ -16,12 +16,12 @@
 }
 
 #sudsNNeast {
-	top: 503px;
+	top: 504px;
 	left: 156px;
 }
 
 #sudsNNwest {
-	top: 525px;
+	top: 524px;
 	left: 156px;
 }
 
