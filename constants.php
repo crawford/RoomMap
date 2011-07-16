@@ -3,7 +3,8 @@
 	define('COLOR_RTP',         0x00AA00);
 	define('COLOR_EBOARD',      0x0000AA);
 	
-	define('OVERLAY_OPACITY', .8);
+	define('OVERLAY_OPACITY',       .8);
+	define('EMPTY_ROOM_BACKGROUND', 0xFFFFFF);
 
 
 	$COLOR_YEAR = array(0xBBBBFF, 0xBBFFFF, 0xBBFFBB, 0xFFFFBB, 0xFFBBBB);

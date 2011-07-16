@@ -34,7 +34,7 @@
 			$rooms[$member['room']]['occupantTwoName'] = $member['name'];
 			$rooms[$member['room']]['occupantTwoColor'] = $nameColor;
 			$rooms[$member['room']]['occupantTwoUsername'] = $member['username'];
-			$rooms[$member['room']]['fillColor'] = (int)round(($rooms[$member['room']]['fillColor'] + get_year_color($member['year'])) / 2);	
+			$rooms[$member['room']]['fillColor'] = (int)round(($rooms[$member['room']]['fillColor'] + get_year_color($member['year'])) / 2);
 		} else {
 			$rooms[$member['room']] = array('occupantOneName' => $member['name'],
 			                                'occupantOneColor' => $nameColor,
@@ -46,7 +46,11 @@
 	# Generate the HTML for each of the rooms
 	foreach($ROOM_NUMBERS as $roomNumber) {
 
-		$background = rgbahex($rooms[$roomNumber]['fillColor'], OVERLAY_OPACITY);
+		if (isset($rooms[$roomNumber]['fillColor'])) {
+			$background = rgbahex($rooms[$roomNumber]['fillColor'], OVERLAY_OPACITY);
+		} else {
+			$background = rgbahex(EMPTY_ROOM_BACKGROUND, OVERLAY_OPACITY);
+		}
 
 		$nameOne = $rooms[$roomNumber]['occupantOneName'];
 		$nameTwo = $rooms[$roomNumber]['occupantTwoName'];
