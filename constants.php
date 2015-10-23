@@ -60,7 +60,7 @@
 	define('SUDS_OVERLAY_FILE', 'sudsoverlay.html');
 	define('TEMPMON_OVERLAY_FILE', 'tempmonoverlay.html');
 
-	define('MEMBERS_URL', 'https://members.csh.rit.edu/profiles/members/');
+	define('MEMBERS_URL', 'https://profiles.csh.rit.edu/user/');
 	define('LDAP_URL',    'ldaps://ldap.csh.rit.edu');
 	define('LDAP_PORT',   636);
 
